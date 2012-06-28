@@ -12,5 +12,7 @@
 (deftest test-hstore-to-hash
   (let [pgo (to-hstore {:name "test" :username "root"})]
     (testing "creating a hash from a PGobject"
-      (is (= {:name "test" :username "root"} (from-hstore pgo))))))
+      (is (= {:name "test" :username "root"} (from-hstore pgo))))
+    (testing "doesn't create a hash if the type isn't hstore"
+      (is (= nil (from-hstore (doto pgo (.setType "blah"))))))))
     

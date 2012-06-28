@@ -22,9 +22,10 @@
 (extend-type org.postgresql.util.PGobject
   FHstorable
   (from-hstore [this]
-    (into {}
-          (for [[k v]
-                (map (fn [v]
-                       (map #(st/replace % #"\"" "") (st/split v #"=>")))
-                     (st/split (.getValue this) #", "))]
-            [(keyword k) v]))))
+    (when (= (.getType this) "hstore")
+      (into {}
+            (for [[k v]
+                  (map (fn [v]
+                         (map #(st/replace % #"\"" "") (st/split v #"=>")))
+                       (st/split (.getValue this) #", "))]
+              [(keyword k) v])))))
