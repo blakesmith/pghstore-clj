@@ -17,7 +17,7 @@
        (apply str
               (interpose ", "
                          (for [[k v] this]
-                           (format "\"%s\"=>\"%s\"" (name k) (name v)))))))))
+                           (format "\"%s\"=>\"%s\"" (name k) v))))))))
 
 (extend-type org.postgresql.util.PGobject
   FHstorable
