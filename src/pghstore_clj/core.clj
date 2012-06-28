@@ -12,8 +12,7 @@
       (.setValue
        (apply str
               (interpose ", "
-                         (map (fn [m]
-                                (let [[k v] m]
-                                  (format "\"%s\"=>\"%s\"" (name k) (name v))))
-                              this)))))))
+                         (for [[k v] this]
+                           (format "\"%s\"=>\"%s\"" (name k) (name v)))))))))
+
                          
