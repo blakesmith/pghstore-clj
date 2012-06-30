@@ -2,7 +2,7 @@
 
 ## What is it?
 
-pghstore-clj is a small helper library to help you work with PostgresSQL's hstore data type. It provides two simple helpers to help you get your data into and out of a hash-map.
+pghstore-clj is a small helper library to help you work with PostgresSQL's hstore data type with the postgresql JDBC adapter (I use version 9.1-901.jdbc4). It provides two simple helpers to help you get your data into and out of a hash-map.
 
 ## Installation
 
