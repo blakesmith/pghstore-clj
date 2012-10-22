@@ -8,7 +8,7 @@
 (defprotocol FHstorable
   (from-hstore [this]))
 
-(extend-type clojure.lang.PersistentArrayMap
+(extend-type clojure.lang.IPersistentMap
   THstorable
   (to-hstore [this]
     (doto (PGobject.)
